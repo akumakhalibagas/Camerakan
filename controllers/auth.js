@@ -51,13 +51,7 @@ exports.getRegister = (req, res, next) => {
     oldInput:{
       email: '',
       password: '',
-      confirmPassword: '',
       name: '',
-      lname: '',
-      address1:'',
-      address2:'',
-      countries: Object.keys(countries),
-			cities: countries
     },
     validationErrors: []
   });
@@ -81,11 +75,6 @@ exports.getUserEdit = (req, res, next) => {
 			oldInput: {
 				email,
 				name,
-        lname,
-        address1,
-        address2,
-				countries: Object.keys(countries),
-				cities: countries,
 			},
 			validationErrors: [],
 		});
@@ -200,10 +189,7 @@ exports.postRegister = (req, res, next) => {
         oldInput: {
           email: email,
           password: password,
-          confirmPassword: req.body.confirmPassword,
           name: name,
-          lname:lname,
-          countries: Object.keys(countries)
         },
         validationErrors: errors.array()
       });
@@ -260,7 +246,6 @@ exports.postUserEdit = (req, res, next) => {
 				email: email,
 				password: password,
 				name: name,
-        lname: lname
 			},
 			validationErrors: errors.array(),
 		});
@@ -277,11 +262,6 @@ exports.postUserEdit = (req, res, next) => {
 						email: email,
 						password: hashedPassword,
 						name: name,
-           lname: lname,
-          address1: address1,
-          address2: address2,
-           // countries: countries
-						//add fields details here
 					}
 				);
 			})
@@ -299,10 +279,6 @@ exports.postUserEdit = (req, res, next) => {
 			{
 				email: email,
 				name: name,
-       lname: lname,
-       address1: address1,
-          address2: address2,
-				//add fields here
 			}
 		)
 			.then(() => {
